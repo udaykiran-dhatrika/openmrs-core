@@ -1,0 +1,15 @@
+pipeline {
+	agent {label 'JDK11'}
+	stages {
+		stage('clone') {
+			steps {
+				git url:'https://github.com/udaykiran-dhatrika/openmrs-core.git' , branch : 'SPRINT_1_REL'
+			} 
+		} 
+		stage('install') {
+			steps {
+				sh 'mvn package'
+			}
+		}
+	}
+}
